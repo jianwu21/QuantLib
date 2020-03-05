@@ -100,6 +100,12 @@ env:
       CACHEDCC="ccache gcc" CACHEDCXX="ccache g++"
       CONFIGURE_FLAGS="--enable-std-classes"
       CXXFLAGS="-O2 -g0 -std=c++11 -Wall -Wno-unknown-pragmas -Werror"
+    #
+    - INFO="Unity build enabled"
+      DOCKER_IMAGE=lballabio/quantlib-devenv:rolling
+      CACHEDCC="ccache gcc" CACHEDCXX="ccache g++"
+      CONFIGURE_FLAGS="--enable-unity-build"
+      CXXFLAGS="-O2 -g0 -Wall -Wno-unknown-pragmas -Wno-deprecated-declarations -Werror"
 
 before_install:
   - docker pull ${DOCKER_IMAGE}
